@@ -141,6 +141,9 @@ class sale_order_line(osv.osv):
                     result['discount'] = sconto ['value']['discount']
             else:
                 result['discount'] = 0.0
+            if list_price[pricelist] != new_list_price and  result['discount'] == 0:
+                result['price_unit'] = list_price[pricelist]
+                
         return res
 
 sale_order_line()
